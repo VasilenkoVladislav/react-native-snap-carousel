@@ -1408,7 +1408,7 @@ export default class Carousel extends Component {
     }
 
     render () {
-        const { data, renderItem, useScrollView, useRecyclerListView } = this.props;
+        const { data, renderItem, useScrollView, useRecyclerListView, sliderWidth, sliderHeight } = this.props;
 
         if (!data || !renderItem) {
             return false;
@@ -1433,7 +1433,9 @@ export default class Carousel extends Component {
                 }
             </AnimatedScrollView>;
         } else if (useRecyclerListView) {
-            return <AnimatedRecyclerListView {...recyclerListViewProps} ref={c => (this._carouselRef = c)} />;
+            return <View style={{width: sliderWidth, height: sliderHeight}}>
+                <AnimatedRecyclerListView {...recyclerListViewProps} ref={c => (this._carouselRef = c)} />
+            </View>;
         } else {
             return <AnimatedFlatList {...props} ref={c => (this._carouselRef = c)} />;
         }
