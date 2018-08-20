@@ -1277,8 +1277,8 @@ export default class Carousel extends Component {
             onScroll: this._onScrollHandler,
             rowRenderer: this._rowRenderer,
             onEndReached: this._onEndReached,
+            style: containerStyle,
             scrollViewProps: {
-                style: containerStyle,
                 contentContainerStyle: contentContainerStyle,
                 decelerationRate: enableMomentum ? 0.9 : 'fast',
                 showsHorizontalScrollIndicator: false,
