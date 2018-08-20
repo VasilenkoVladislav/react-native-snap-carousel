@@ -253,9 +253,9 @@ export default class Carousel extends Component {
             return;
         }
 
-        if (thisItemLength < itemsLength) {
+        if (thisItemLength !== itemsLength) {
             this.setState(prevState => ({
-                dataSource: prevState.dataSource.cloneWithRows(nextProps.data)
+                dataProvider: prevState.dataProvider.cloneWithRows(nextProps.data)
             }));
         }
 
