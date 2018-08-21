@@ -106,6 +106,7 @@ export default class Carousel extends Component {
         swipeThreshold: 20,
         useScrollView: !AnimatedFlatList && !AnimatedRecyclerListView,
         useRecyclerListView: false,
+        onEndReached: () => {},
         vertical: false
     };
 
