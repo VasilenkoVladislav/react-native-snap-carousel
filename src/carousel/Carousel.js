@@ -245,6 +245,7 @@ export default class Carousel extends Component {
 
     componentWillReceiveProps (nextProps) {
         const { interpolators } = this.state;
+        const { useRecyclerView } = this.props;
         const { firstItem, itemHeight, itemWidth, scrollEnabled, sliderHeight, sliderWidth } = nextProps;
         const thisItemLength = this._getCustomDataLength(this.props);
         const itemsLength = this._getCustomDataLength(nextProps);
@@ -253,7 +254,7 @@ export default class Carousel extends Component {
             return;
         }
 
-        if (thisItemLength !== itemsLength) {
+        if (useRecyclerView && thisItemLength !== itemsLength) {
             this.setState(prevState => ({
                 dataProvider: prevState.dataProvider.cloneWithRows(nextProps.data)
             }));
